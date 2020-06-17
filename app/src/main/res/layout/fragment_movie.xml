@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.recyclerview.widget.RecyclerView
+
+        android:id="@+id/movieRecyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+
+        />
+
+    <TextView
+        android:id="@+id/txtError"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Can't Show Data"
+        app:layout_constraintBottom_toBottomOf="@+id/movieRecyclerview"
+        app:layout_constraintLeft_toLeftOf="@+id/movieRecyclerview"
+        />
+
+    private lateinit var galleryViewModel: TopRatedViewModel
+    private lateinit var TopRatedAdapter: TopRatedViewModel
+
+    override fun onCreateView(
+    inflater: LayoutInflater, container: ViewGroup?,
+    savedInstanceState: Bundle?
+    ): View? {
+
+    galleryViewModel = ViewModelProviders.of(this).get(TopRatedViewModel::class.java)
+
+    val root = inflater.inflate(R.layout.fragment_movie, container, false)
+    return root
+    }
+
+</androidx.constraintlayout.widget.ConstraintLayout>
